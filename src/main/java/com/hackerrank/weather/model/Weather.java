@@ -1,8 +1,11 @@
 package com.hackerrank.weather.model;
 
 import java.util.Date;
-
+import javax.persistence.Entity;
+@Entity
 public class Weather {
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
     private Date dateRecorded;
     private Location location;
