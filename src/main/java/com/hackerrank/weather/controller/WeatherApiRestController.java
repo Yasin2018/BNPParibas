@@ -1,7 +1,8 @@
-package com.hackerrank.weather.controller;
+package com.hackerrank.weather.repository;
 
-import org.springframework.web.bind.annotation.RestController;
+import com.hackerrank.weather.model.Location;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@RestController
-public class WeatherApiRestController {
+public interface LocationRepository extends JpaRepository<Location,String> {
+
 }
