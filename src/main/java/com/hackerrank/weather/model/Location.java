@@ -1,44 +1,54 @@
-package com.hackerrank.weather.service;
+package com.hackerrank.weather.model;
+import javax.persistence.Entity;
 
-import com.hackerrank.weather.repository.WeatherRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+@Entity
+public class Location {
+    @Id
+    private String cityName;
+    private String stateName;
+    private Float latitude;
+    private Float longitude;
 
-import javax.persistence.EntityNotFoundException;
-import com.hackerrank.weather.repository.LocationRepository;
-import com.hackerrank.weather.model.Location;
-@Service
-public class LocationService {
-
-    @Autowired
-    LocationRepository locationRepository;
-
-
-    public Location getLocation(String cityName) {
-
-        if(weatherRepository.findById(cityName).isPresent()){
-            return locationRepository.findById(cityName).get();
-        }else{
-            throw new EntityNotFoundException("Location Not found for  " + cityName );
-        }
-
+    public Location() {
     }
 
-    public void addLocation(Location location) {
-
-        locationRepository.save(location);
-
+    public Location(String cityName, String stateName, Float latitude, Float longitude) {
+        this.cityName = cityName;
+        this.stateName = stateName;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
-    public void updateLocation(Location location) {
-
-        locationRepository.save(location);
+    public String getCityName() {
+        return cityName;
     }
 
-    public void deleteLocation(String  cityName) {
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
 
+    public String getStateName() {
+        return stateName;
+    }
 
-        locationRepository.deleteById(cityName);
+    public void setStateName(String stateName) {
+        this.stateName = stateName;
+    }
 
+    public Float getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Float latitude) {
+        this.latitude = latitude;
+    }
+
+    public Float getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Float longitude) {
+        this.longitude = longitude;
     }
 }
+
