@@ -54,7 +54,7 @@ a
         try {
             WeatherItems=WeatherItemProxy.getItemsByWeatherId(Weather.getWeatherId());
         }catch(Exception e) {
-            throw new EntityNotFoundException("No Item Found for Weather Id test:"+WeatherId);
+            throw new EntityNotFoundException("No Item Found for test Weather Id test:"+WeatherId);
         }
 
         Weather.setWeatherItems(WeatherItems);
