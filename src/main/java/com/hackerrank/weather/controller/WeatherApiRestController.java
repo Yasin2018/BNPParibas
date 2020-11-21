@@ -34,7 +34,7 @@ public class WeatherApiRestController {
     private Validator validator;
 
 
-a
+
     @RequestMapping("/returnAllWeatherData")
     public List<Weather> getAllWeatherDate() throws EntityNotFoundException{
         List<Weather> weatherList=weatherService.getAllWeatherData();
@@ -54,7 +54,7 @@ a
         try {
             WeatherItems=WeatherItemProxy.getItemsByWeatherId(Weather.getWeatherId());
         }catch(Exception e) {
-            throw new EntityNotFoundException("No Item Found for test Weather Id test:"+WeatherId);
+            throw new EntityNotFoundException("No Item Found for test Weather Id test update from STS:"+WeatherId);
         }
 
         Weather.setWeatherItems(WeatherItems);
